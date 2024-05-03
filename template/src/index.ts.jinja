@@ -1,4 +1,7 @@
 import {NestFactory} from "@nestjs/core";
+{% if with_mikro %}
+import {MikroORM} from "@mikro-orm/core";
+{% endif %}
 import {ApplicationModule} from "./modules/app.module";
 
 const DEFAULT_PORT = 3000;
@@ -6,6 +9,11 @@ const DEFAULT_PORT = 3000;
 async function bootstrap(): Promise<void>
 {
     const app = await NestFactory.create(ApplicationModule);
+
+    {% if with_mikro %}
+    await app.get(MikroORM).getSchemaGenerator().ensureDatabase();
+    await app.get(MikroORM).getSchemaGenerator().updateSchema();
+    {% endif %}
 
     await app.listen(process.env["PORT"] || DEFAULT_PORT);
 }

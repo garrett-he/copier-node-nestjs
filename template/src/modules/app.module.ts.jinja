@@ -1,0 +1,11 @@
+import {Module} from "@nestjs/common";
+import {HelloModule} from "./hello/hello.module";
+{% if with_mikro %}
+import {UserModule} from "./user/user.module";
+{% endif %}
+
+@Module({
+    imports: [HelloModule {% if with_mikro %}, UserModule{% endif %}]
+})
+export class ApplicationModule {
+}

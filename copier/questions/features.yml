@@ -1,0 +1,5 @@
+---
+with_mikro:
+  type: bool
+  help: "With MikroORM?"
+  default: False
