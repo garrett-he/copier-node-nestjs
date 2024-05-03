@@ -7,11 +7,9 @@
     "main": "./dist/index.js",
     {% endif %}
     "scripts": {
-        "build": "tsc",
-        {% if with_entrypoint %}
-        "dev": "NODE_ENV=development ts-node-dev --respawn src/index.ts",
-        "start": "NODE_ENV=production node dist/index.js",
-        {% endif %}
+        "build": "nest build -p tsconfig.json",
+        "dev": "nest start -p tsconfig.json --watch",
+        "start": "NODE_ENV=production node dist/src/index.js",
         "test": "jest"
     },
     "repository": {
@@ -23,7 +21,13 @@
     ],
     "author": "{{ copyright_holder_name }} <{{ copyright_holder_email }}>",
     "license": "{{ copyright_license }}",
+    "dependencies": {
+        "@nestjs/core": "^9.1.4",
+        "@nestjs/platform-express": "^9.1.4"
+    },
     "devDependencies": {
+        "@nestjs/cli": "^9.1.4",
+        "@nestjs/testing": "^9.1.4",
         "@types/chance": "^1.1.6",
         "@types/jest": "^29.5.14",
         "@types/node": "^22.13.1",
