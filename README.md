@@ -1,9 +1,9 @@
-# copier-node
+# copier-node-nestjs
 
-![license](https://img.shields.io/github/license/garrett-he/copier-node)
-![test](https://img.shields.io/github/actions/workflow/status/garrett-he/copier-node/test.yml)
+![license](https://img.shields.io/github/license/garrett-he/copier-node-nestjs)
+![test](https://img.shields.io/github/actions/workflow/status/garrett-he/copier-node-nestjs/test.yml)
 
-A [Copier][1] template for [Node.js][2] projects.
+A [Copier][1] template for [Node.js][2] projects with [NestJS][3] framework.
 
 ## Quickstart
 
@@ -14,7 +14,7 @@ A [Copier][1] template for [Node.js][2] projects.
 
 2. Use command `copier` to generate a new project:
     ```
-    copier copy --trust gh:garrett-he/copier-node /path/to/destination
+    copier copy --trust gh:garrett-he/copier-node-nestjs /path/to/destination
     ```
 
 ## License
@@ -26,3 +26,5 @@ The BSD 3-Clause License, see [LICENSE](./LICENSE).
 [1]: https://github.com/copier-org/copier
 
 [2]: https://nodejs.org/
+
+[3]: https://nestjs.com/
