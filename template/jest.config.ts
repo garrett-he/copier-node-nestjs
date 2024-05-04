@@ -1,8 +1,18 @@
 import type {Config} from '@jest/types';
 
 export default <Config.InitialOptions>{
-    verbose: true,
+    moduleFileExtensions: ["js", "json", "ts"],
+    rootDir: ".",
+    testRegex: ".*\\.spec\\.ts$",
     transform: {
-        '^.+\\.tsx?$': 'ts-jest'
+        "^.+\\.(t|j)s$": "ts-jest"
+    },
+    collectCoverageFrom: [
+        "**/*.(t|j)s"
+    ],
+    coverageDirectory: "../coverage",
+    testEnvironment: "node",
+    moduleNameMapper: {
+        "^@/(.*)$": "<rootDir>/src/$1"
     }
 };

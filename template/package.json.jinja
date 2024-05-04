@@ -10,7 +10,9 @@
         "build": "nest build -p tsconfig.json",
         "dev": "nest start -p tsconfig.json --watch",
         "start": "NODE_ENV=production node dist/src/index.js",
-        "test": "jest"
+        "test": "npm run test:unit && npm run test:e2e",
+        "test:unit": "jest",
+        "test:e2e": "jest --config ./__tests__/e2e/jest-e2e.config.ts"
     },
     "repository": {
         "type": "git",
@@ -42,7 +44,9 @@
         "@types/chance": "^1.1.6",
         "@types/jest": "^29.5.14",
         "@types/node": "^22.13.1",
+        "@types/supertest": "^2.0.12",
         "chance": "^1.1.12",
+        "supertest": "^6.3.0",
         "ts-jest": "^29.2.5",
         "ts-node": "^10.9.2",
         {% if with_entrypoint %}
