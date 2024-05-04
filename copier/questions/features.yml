@@ -3,3 +3,8 @@ with_mikro:
   type: bool
   help: "With MikroORM?"
   default: False
+
+with_swagger:
+  type: bool
+  help: "With Swagger?"
+  default: True

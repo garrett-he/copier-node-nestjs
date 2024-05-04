@@ -1,4 +1,7 @@
 import {NestFactory} from "@nestjs/core";
+{% if with_swagger %}
+import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
+{% endif %}
 {% if with_mikro %}
 import {MikroORM} from "@mikro-orm/core";
 {% endif %}
@@ -9,6 +12,17 @@ const DEFAULT_PORT = 3000;
 async function bootstrap(): Promise<void>
 {
     const app = await NestFactory.create(ApplicationModule);
+    {% if with_swagger %}
+    const options = new DocumentBuilder()
+        .setTitle("API Template NestJS")
+        .setDescription("The NestJS API description")
+        .setVersion("1.0")
+        .build();
+
+    const document = SwaggerModule.createDocument(app, options);
+
+    SwaggerModule.setup("api", app, document);
+    {% endif %}
 
     {% if with_mikro %}
     await app.get(MikroORM).getSchemaGenerator().ensureDatabase();

@@ -32,6 +32,9 @@
         {% endif %}
         "@nestjs/core": "^9.1.4",
         "@nestjs/platform-express": "^9.1.4"
+        {% if with_swagger %}
+        ,"@nestjs/swagger": "^6.1.2"
+        {% endif %}
     },
     "devDependencies": {
         "@nestjs/cli": "^9.1.4",
